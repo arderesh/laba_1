@@ -1,0 +1,21 @@
+NUM = "NUM"
+PLUS = "PLUS"
+MINUS = "MINUS"
+MUL = "MUL"
+DIV = "DIV"
+UPLUS = "UPLUS"
+UMINUS = "UMINUS"
+
+BINARY_OPS = {PLUS, MINUS, MUL, DIV}
+UNARY_OPS = {UPLUS, UMINUS}
+
+OPERATORS = "+-*/"
+
+PRECEDENCE = {
+    UPLUS: 3,
+    UMINUS: 3,
+    MUL: 2,
+    DIV: 2,
+    PLUS: 1,
+    MINUS: 1,
+}
