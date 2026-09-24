@@ -5,22 +5,23 @@ class ToolkitError(Exception):
 class CalcError(ToolkitError):
     """ошибки кальулятора"""
 
-
+###
 class EmptyExpressionError(CalcError):
     pass
+###
 
-
+###
 class InvalidTokenError(CalcError):
     pass
-
+###
 
 class InvalidExpressionError(CalcError):
     pass
 
-
+###
 class DivisionByZeroError(CalcError):
     pass
-
+###
 
 class ConvError(ToolkitError):
     """ошибки конвертора"""
