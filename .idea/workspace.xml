@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c91cb93b-3bc1-49bb-ba82-bdccb18f0b93" name="Changes" comment="">
+    <list default="true" id="c91cb93b-3bc1-49bb-ba82-bdccb18f0b93" name="Changes" comment="Токенизация/опз/ошибки/валидация/результат выражения + обработка ошибок с плавающей точкой и использование Decimal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/toolkit/calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/toolkit/calculator.py" afterDir="false" />
     </list>
@@ -102,7 +102,15 @@
       <option name="project" value="LOCAL" />
       <updated>1790289705801</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Токенизация/опз/ошибки/валидация/результат выражения + обработка ошибок с плавающей точкой и использование Decimal">
+      <option name="closed" value="true" />
+      <created>1790345001559</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1790345001559</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,6 +120,7 @@
     <MESSAGE value="/./" />
     <MESSAGE value="Токенизация + ОПЗ (целые числа only)" />
     <MESSAGE value="Токенизация/опз/ошибки/валидация/результат выражения" />
-    <option name="LAST_COMMIT_MESSAGE" value="Токенизация/опз/ошибки/валидация/результат выражения" />
+    <MESSAGE value="Токенизация/опз/ошибки/валидация/результат выражения + обработка ошибок с плавающей точкой и использование Decimal" />
+    <option name="LAST_COMMIT_MESSAGE" value="Токенизация/опз/ошибки/валидация/результат выражения + обработка ошибок с плавающей точкой и использование Decimal" />
   </component>
 </project>

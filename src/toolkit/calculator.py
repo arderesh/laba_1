@@ -112,41 +112,44 @@ def to_npr(tokens):
 
 
 def eval_npr(expr):
-    i = 0
-    while i < len(expr) - 1:
-        if expr[i][0] == NUM and expr[i + 1][0] == UMINUS:
-            del expr[i + 1]
-            expr[i] = (NUM, '-' + expr[i][1])
-        elif expr[i][0] == NUM and expr[i + 1][0] == UPLUS:
-            del expr[i + 1]
-        i += 1
+    stack = []
+    for tok_type, tok_val in expr:
+        if tok_type == NUM:
+            stack.append(Decimal(tok_val))
 
-    i = 0
-    while len(expr) != 1:
-        if expr[i][0] == NUM and expr[i + 1][0] == NUM and expr[i + 2][0] in BINARY_OPS:
-            first_num = Decimal(expr[i][1])
-            second_num = Decimal(expr[i + 1][1])
+        elif tok_type == UMINUS:
+            if not stack:
+                raise InvalidExpressionError('Нет числа после унарного минуса')
+            stack.append(-stack.pop())
 
-            op = expr[i + 2][1]
+        elif tok_type == UPLUS:
+            if not stack:
+                raise InvalidExpressionError('Нет числа после ураного плюса')
 
-            if op == '+':
-                res = first_num + second_num
+        elif tok_type in BINARY_OPS:
+            if len(stack) < 2:
+                raise InvalidExpressionError('Должно быть как минимум два операнда для вычисления')
+            b = stack.pop()
+            a = stack.pop()
 
-            elif op == '-':
-                res = first_num - second_num
+            if tok_type == PLUS:
+                stack.append(a + b)
 
-            elif op == '*':
-                res = first_num * second_num
+            elif tok_type == MINUS:
+                stack.append(a - b)
 
-            elif op == '/':
-                if second_num == 0:
-                    raise DivisionByZeroError('Деление на ноль. Ошибка')
-                res = first_num / second_num
+            elif tok_type == MUL:
+                stack.append(a * b)
 
-            expr[i] = ('NUM', str(res))
-            del expr[i + 1], expr[i + 1]
-            i = 0
+            elif tok_type == DIV:
+                if b == 0:
+                    raise DivisionByZeroError('Деление на ноль')
+                stack.append(a / b)
+
         else:
-            i += 1
+            raise InvalidExpressionError('Неизвестный токен')
 
-    return float(Decimal(expr[0][1]))
+    if len(stack) != 1:
+        raise InvalidExpressionError('Остались лишние операторы, выражение неверное')
+
+    return float(stack[0])
