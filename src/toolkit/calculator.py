@@ -155,7 +155,7 @@ def eval_npr(expr):
     return float(stack[0])
 
 
-def calculate(expression: str) -> float:
+def calculate(expression):
     tokens = tokenize(expression)
     validate(tokens)
     return eval_npr(to_npr(tokens))
