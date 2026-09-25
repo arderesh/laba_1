@@ -124,7 +124,7 @@ def eval_npr(expr):
 
         elif tok_type == UPLUS:
             if not stack:
-                raise InvalidExpressionError('Нет числа после ураного плюса')
+                raise InvalidExpressionError('Нет числа после унарого плюса')
 
         elif tok_type in BINARY_OPS:
             if len(stack) < 2:
@@ -153,3 +153,9 @@ def eval_npr(expr):
         raise InvalidExpressionError('Остались лишние операторы, выражение неверное')
 
     return float(stack[0])
+
+
+def calculate(expression: str) -> float:
+    tokens = tokenize(expression)
+    validate(tokens)
+    return eval_npr(to_npr(tokens))
