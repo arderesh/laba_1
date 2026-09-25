@@ -1,5 +1,6 @@
 from toolkit.constants import NUM, PLUS, MINUS, MUL, DIV, BINARY_OPS, UNARY_OPS, OPERATORS, UMINUS, PRECEDENCE, UPLUS
 from toolkit.errors import EmptyExpressionError, DivisionByZeroError, InvalidExpressionError, InvalidTokenError
+from decimal import Decimal
 
 
 def tokenize(expr):
@@ -17,11 +18,13 @@ def tokenize(expr):
             number += ch
             continue
 
-        elif ch == '.' and expr[i - 1].isdigit() and expr[i + 1].isdigit():
+        elif (ch == '.' and i > 0 and i + 1 < len(expr) and expr[i - 1].isdigit() and expr[i + 1].isdigit()):
             number += ch
 
         elif ch in OPERATORS:
             if number != '':
+                if number.count('.') > 1:
+                    raise InvalidTokenError(f'Неверное число: {number}')
                 tokens.append((NUM, number))
                 number = ''
 
@@ -51,6 +54,8 @@ def tokenize(expr):
             raise InvalidTokenError(f'Неверный символ в выражении: {ch}')
 
     if number != '':
+        if number.count('.') > 1:
+            raise InvalidTokenError(f'Неверное число: {number}')
         tokens.append((NUM, number))
 
     return tokens
@@ -60,6 +65,7 @@ def push_op(stack, res, op):
     while stack and PRECEDENCE.get(stack[-1][0]) >= PRECEDENCE[op[0]]:
         res.append(stack.pop())
     stack.append(op)
+
 
 def validate(tokens):
     if not tokens:
@@ -84,6 +90,7 @@ def validate(tokens):
         if current in UNARY_OPS and later != NUM:
             raise InvalidExpressionError('Унарный оператор не перед числом. Ошибка')
 
+
 def to_npr(tokens):
     res = []
     stack = []
@@ -103,26 +110,22 @@ def to_npr(tokens):
 
     return res
 
+
 def eval_npr(expr):
     i = 0
     while i < len(expr) - 1:
-        if expr[i][0] == NUM and expr[i + 1][0] == 'UMINUS':
+        if expr[i][0] == NUM and expr[i + 1][0] == UMINUS:
             del expr[i + 1]
-            number = '-' + expr[i][1]
-            new_n = ('NUM', number)
-            expr[i] = new_n
-        elif expr[i][0] == NUM and expr[i + 1][0] == 'UPLUS':
+            expr[i] = (NUM, '-' + expr[i][1])
+        elif expr[i][0] == NUM and expr[i + 1][0] == UPLUS:
             del expr[i + 1]
-            number = expr[i][1]
-            new_n = ('NUM', number)
-            expr[i] = new_n
         i += 1
 
     i = 0
     while len(expr) != 1:
         if expr[i][0] == NUM and expr[i + 1][0] == NUM and expr[i + 2][0] in BINARY_OPS:
-            first_num = float(expr[i][1])
-            second_num = float(expr[i + 1][1])
+            first_num = Decimal(expr[i][1])
+            second_num = Decimal(expr[i + 1][1])
 
             op = expr[i + 2][1]
 
@@ -138,23 +141,12 @@ def eval_npr(expr):
             elif op == '/':
                 if second_num == 0:
                     raise DivisionByZeroError('Деление на ноль. Ошибка')
-                else:
-                    res = first_num / second_num
+                res = first_num / second_num
 
-            result = ('NUM', str(res))
-            expr[i] = result
-
+            expr[i] = ('NUM', str(res))
             del expr[i + 1], expr[i + 1]
-
             i = 0
         else:
             i += 1
 
-    return float(expr[0][1])
-
-
-expression = input()
-tokens = tokenize(expression)
-# print(to_npr(tokens))
-validate(tokens)
-print(eval_npr(to_npr(tokens)))
+    return float(Decimal(expr[0][1]))
