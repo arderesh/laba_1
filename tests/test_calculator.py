@@ -1,7 +1,7 @@
 import pytest
 from toolkit.calculator import calculate, to_npr, tokenize
 from toolkit.constants import MINUS, PLUS, NUM, MUL, UMINUS
-from toolkit.errors import *
+from toolkit.errors import EmptyExpressionError, DivisionByZeroError, InvalidExpressionError, InvalidTokenError
 
 @pytest.mark.parametrize(
     ("expression", "expected"),

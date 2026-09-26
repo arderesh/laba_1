@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c91cb93b-3bc1-49bb-ba82-bdccb18f0b93" name="Changes" comment="main + calculator (полный)">
-      <change beforePath="$PROJECT_DIR$/.idea/laba_1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laba_1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/toolkit/converter.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/toolkit/converter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/toolkit/errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/toolkit/errors.py" afterDir="false" />
+    <list default="true" id="c91cb93b-3bc1-49bb-ba82-bdccb18f0b93" name="Changes" comment="tests to converter">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/test_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/test_cli.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +21,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -56,10 +59,11 @@
     "Python.errors.executor": "Run",
     "Python.test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "1",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.jshint": "true",
     "node.js.selected.package.jshint": "",
@@ -137,7 +141,31 @@
       <option name="project" value="LOCAL" />
       <updated>1790371885310</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="main + calculator (полный)">
+      <option name="closed" value="true" />
+      <created>1790445927742</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1790445927742</updated>
+    </task>
+    <task id="LOCAL-00009" summary="converter + tests to converter">
+      <option name="closed" value="true" />
+      <created>1790450073377</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1790450073377</updated>
+    </task>
+    <task id="LOCAL-00010" summary="tests to converter">
+      <option name="closed" value="true" />
+      <created>1790450807912</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1790450807912</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +178,8 @@
     <MESSAGE value="Токенизация/опз/ошибки/валидация/результат выражения + обработка ошибок с плавающей точкой и использование Decimal" />
     <MESSAGE value="Токенизация/опз/ошибки/валидация/результат выражения + обработка ошибок с плавающей точкой и использование Decimal ++ npr - решено стэком" />
     <MESSAGE value="main + calculator (полный)" />
-    <option name="LAST_COMMIT_MESSAGE" value="main + calculator (полный)" />
+    <MESSAGE value="converter + tests to converter" />
+    <MESSAGE value="tests to converter" />
+    <option name="LAST_COMMIT_MESSAGE" value="tests to converter" />
   </component>
 </project>
