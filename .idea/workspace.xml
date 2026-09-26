@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c91cb93b-3bc1-49bb-ba82-bdccb18f0b93" name="Changes" comment="calc + converter + tests (calc, conv, cli)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+    <list default="true" id="c91cb93b-3bc1-49bb-ba82-bdccb18f0b93" name="Changes" comment="cleaning + annotation">
       <change beforePath="$PROJECT_DIR$/src/toolkit/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/toolkit/__main__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/toolkit/calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/toolkit/calculator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/toolkit/converter.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/toolkit/converter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/toolkit/errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/toolkit/errors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_calculator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_converter.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_converter.py" afterDir="false" />
     </list>
@@ -185,7 +180,23 @@
       <option name="project" value="LOCAL" />
       <updated>1790452153999</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="cleaning code">
+      <option name="closed" value="true" />
+      <created>1790454173652</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1790454173652</updated>
+    </task>
+    <task id="LOCAL-00013" summary="cleaning + annotation">
+      <option name="closed" value="true" />
+      <created>1790454185570</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1790454185570</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,6 +212,8 @@
     <MESSAGE value="converter + tests to converter" />
     <MESSAGE value="tests to converter" />
     <MESSAGE value="calc + converter + tests (calc, conv, cli)" />
-    <option name="LAST_COMMIT_MESSAGE" value="calc + converter + tests (calc, conv, cli)" />
+    <MESSAGE value="cleaning code" />
+    <MESSAGE value="cleaning + annotation" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleaning + annotation" />
   </component>
 </project>
