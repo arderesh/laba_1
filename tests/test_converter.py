@@ -1,8 +1,12 @@
 import pytest
 
 from toolkit.converter import convert
-from toolkit.errors import BelowAbsoluteZeroError, IncompatibleUnitsError, InvalidExpressionError, UnknownUnitError, \
-    InvalidValueError
+from toolkit.errors import (
+    BelowAbsoluteZeroError,
+    IncompatibleUnitsError,
+    InvalidValueError,
+    UnknownUnitError,
+)
 
 
 @pytest.mark.parametrize(('value', 'from_unit', 'to_unit', 'expected'),
