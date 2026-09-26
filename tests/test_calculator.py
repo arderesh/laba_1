@@ -21,7 +21,7 @@ from toolkit.errors import (
         ("+5", 5),
         ("7", 7)]
 )
-def test_caltulate_positive(expression, expected):
+def test_caltulate_positive(expression: str, expected: float) -> None:
     assert calculate(expression) == pytest.approx(expected)
 
 
@@ -36,7 +36,7 @@ def test_caltulate_positive(expression, expected):
         ("2..3", InvalidTokenError),
         ("1/0", DivisionByZeroError)]
 )
-def test_calculate_negative(expression, error):
+def test_calculate_negative(expression: str, error: type[Exception]) -> None:
     with pytest.raises(error):
         calculate(expression)
 

@@ -6,13 +6,13 @@ from toolkit.converter import convert
 from toolkit.errors import ToolkitError
 
 
-def format_result(value):
+def format_result(value: float) -> str:
     if value == int(value):
         return str(int(value))
     return str(value)
 
 
-def build_parser():
+def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog='toolkit',
         description='калькулятор выражений и конвертер величин',
@@ -41,7 +41,7 @@ def build_parser():
     return parser
 
 
-def main(argv=None):
+def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
 

@@ -28,7 +28,7 @@ ABS_ZERO = {
 }
 
 
-def group(unit):
+def group(unit: str) -> str:
     if unit in LENG:
         return "length"
     elif unit in MASSA:
@@ -38,7 +38,7 @@ def group(unit):
     raise UnknownUnitError('Неизвестная единица')
 
 
-def to_c(unit, value):
+def to_c(unit: str, value:float) -> float:
     if unit == 'c':
         return value
     elif unit == 'f':
@@ -47,7 +47,7 @@ def to_c(unit, value):
         return value - 273.15
 
 
-def from_c(unit, value):
+def from_c(unit: str, value: float) -> float:
     if unit == 'c':
         return value
     if unit == 'f':
@@ -56,7 +56,7 @@ def from_c(unit, value):
         return value + 273.15
 
 
-def convert(value, from_unit, to_unit):
+def convert(value: float, from_unit: str, to_unit: str) -> float:
     if not isinstance(value, (int, float)):
         raise InvalidValueError('Значение должно быть числом')
 
