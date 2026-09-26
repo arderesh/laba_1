@@ -1,8 +1,12 @@
 import pytest
 
 from toolkit.converter import convert
-from toolkit.errors import BelowAbsoluteZeroError, IncompatibleUnitsError, InvalidExpressionError, UnknownUnitError, \
-    InvalidValueError
+from toolkit.errors import (
+    BelowAbsoluteZeroError,
+    IncompatibleUnitsError,
+    InvalidValueError,
+    UnknownUnitError,
+)
 
 
 @pytest.mark.parametrize(('value', 'from_unit', 'to_unit', 'expected'),
@@ -13,7 +17,8 @@ from toolkit.errors import BelowAbsoluteZeroError, IncompatibleUnitsError, Inval
                            (1000, 'MM', 'M', 1),
                            (2, 'km', 'cm', 200000)
                          ])
-def test_convert_positive(value, from_unit, to_unit, expected):
+def test_convert_positive(value: float, from_unit: str,
+                          to_unit: str, expected: float) -> None:
     assert convert(value, from_unit, to_unit) == pytest.approx(expected)
 
 
@@ -24,6 +29,7 @@ def test_convert_positive(value, from_unit, to_unit, expected):
                              (5, 'm', 'lightyear', UnknownUnitError),
                              ('abs', 'm', 'km', InvalidValueError),
                          ])
-def test_convert_negative(value, from_unit, to_unit, error):
+def test_convert_negative(value: float, from_unit: str,
+                          to_unit: str, error: type[Exception]) -> None:
     with pytest.raises(error):
         convert(value, from_unit, to_unit)
