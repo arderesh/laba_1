@@ -1,9 +1,30 @@
-from toolkit.constants import NUM, PLUS, MINUS, MUL, DIV, BINARY_OPS, UNARY_OPS, OPERATORS, UMINUS, PRECEDENCE, UPLUS
-from toolkit.errors import EmptyExpressionError, DivisionByZeroError, InvalidExpressionError, InvalidTokenError
 from decimal import Decimal
 
+from toolkit.constants import (
+    BINARY_OPS,
+    DIV,
+    MINUS,
+    MUL,
+    NUM,
+    OPERATORS,
+    PLUS,
+    PRECEDENCE,
+    UMINUS,
+    UNARY_OPS,
+    UPLUS,
+)
+from toolkit.errors import (
+    DivisionByZeroError,
+    EmptyExpressionError,
+    InvalidExpressionError,
+    InvalidTokenError,
+)
 
-def tokenize(expr):
+Token = tuple[str, str] # алиасы для подстановки в аннотациях
+Tokens = list[Token]
+
+
+def tokenize(expr: str) -> Tokens:
     if not expr or not expr.strip():
         raise EmptyExpressionError("Выражение пустое. Ошибка!")
 
@@ -18,7 +39,9 @@ def tokenize(expr):
             number += ch
             continue
 
-        elif (ch == '.' and i > 0 and i + 1 < len(expr) and expr[i - 1].isdigit() and expr[i + 1].isdigit()):
+        elif (ch == '.' and i > 0
+              and i + 1 < len(expr) and expr[i - 1].isdigit()
+              and expr[i + 1].isdigit()):
             number += ch
 
         elif ch in OPERATORS:
@@ -29,14 +52,16 @@ def tokenize(expr):
                 number = ''
 
             if ch == '+':
-                if not tokens or tokens[-1][0] in BINARY_OPS or tokens[-1][0] in UNARY_OPS:
+                if (not tokens or tokens[-1][0] in BINARY_OPS
+                        or tokens[-1][0] in UNARY_OPS):
                     tokens.append((UPLUS, ch))
                 else:
                     tokens.append((PLUS, ch))
                 continue
 
             if ch == '-':
-                if not tokens or tokens[-1][0] in BINARY_OPS or tokens[-1][0] in UNARY_OPS:
+                if (not tokens or tokens[-1][0] in BINARY_OPS
+                        or tokens[-1][0] in UNARY_OPS):
                     tokens.append((UMINUS, ch))
                 else:
                     tokens.append((MINUS, ch))
@@ -61,18 +86,19 @@ def tokenize(expr):
     return tokens
 
 
-def push_op(stack, res, op):
+def push_op(stack: list[Token], res: Tokens, op: Token) -> None:
     while stack and PRECEDENCE.get(stack[-1][0]) >= PRECEDENCE[op[0]]:
         res.append(stack.pop())
     stack.append(op)
 
 
-def validate(tokens):
+def validate(tokens: Tokens) -> None:
     if not tokens:
         raise EmptyExpressionError('Выражение пустое. Ошибка')
 
     if tokens[0][0] in (MUL, DIV):
-        raise InvalidExpressionError('Первым знаком в выражении не может быть * или /. Ошибка')
+        raise InvalidExpressionError(
+            'Первым знаком в выражении не может быть * или /. Ошибка')
 
     if tokens[-1][0] != NUM:
         raise InvalidExpressionError('Выражение должно заканчиваться числом. Ошибка')
@@ -91,7 +117,7 @@ def validate(tokens):
             raise InvalidExpressionError('Унарный оператор не перед числом. Ошибка')
 
 
-def to_npr(tokens):
+def to_npr(tokens: Tokens) -> Tokens:
     res = []
     stack = []
 
@@ -111,7 +137,7 @@ def to_npr(tokens):
     return res
 
 
-def eval_npr(expr):
+def eval_npr(expr: Tokens) -> float:
     stack = []
     for tok_type, tok_val in expr:
         if tok_type == NUM:
@@ -128,7 +154,8 @@ def eval_npr(expr):
 
         elif tok_type in BINARY_OPS:
             if len(stack) < 2:
-                raise InvalidExpressionError('Должно быть как минимум два операнда для вычисления')
+                raise InvalidExpressionError(
+                    'Должно быть как минимум два операнда для вычисления')
             b = stack.pop()
             a = stack.pop()
 
@@ -155,7 +182,7 @@ def eval_npr(expr):
     return float(stack[0])
 
 
-def calculate(expression):
+def calculate(expression: str) -> float:
     tokens = tokenize(expression)
     validate(tokens)
     return eval_npr(to_npr(tokens))
