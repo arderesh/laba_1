@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c91cb93b-3bc1-49bb-ba82-bdccb18f0b93" name="Changes" comment="cleaning + annotation">
-      <change beforePath="$PROJECT_DIR$/.idea/laba_1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/toolkit.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="c91cb93b-3bc1-49bb-ba82-bdccb18f0b93" name="Changes" comment="finish">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/toolkit/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/toolkit/__main__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/toolkit/calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/toolkit/calculator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/toolkit/converter.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/toolkit/converter.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +70,7 @@
     "node.js.detected.package.jshint": "true",
     "node.js.selected.package.jshint": "",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap"
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -219,7 +218,39 @@
       <option name="project" value="LOCAL" />
       <updated>1790454856871</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="finish">
+      <option name="closed" value="true" />
+      <created>1790624034432</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1790624034440</updated>
+    </task>
+    <task id="LOCAL-00017" summary="finish">
+      <option name="closed" value="true" />
+      <created>1790624143094</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1790624143094</updated>
+    </task>
+    <task id="LOCAL-00018" summary="finish">
+      <option name="closed" value="true" />
+      <created>1790624194972</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1790624194972</updated>
+    </task>
+    <task id="LOCAL-00019" summary="finish">
+      <option name="closed" value="true" />
+      <created>1790624221085</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1790624221085</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,6 +291,7 @@
     <MESSAGE value="calc + converter + tests (calc, conv, cli)" />
     <MESSAGE value="cleaning code" />
     <MESSAGE value="cleaning + annotation" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleaning + annotation" />
+    <MESSAGE value="finish" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish" />
   </component>
 </project>

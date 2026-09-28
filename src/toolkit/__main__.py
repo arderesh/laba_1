@@ -13,6 +13,7 @@ def format_result(value: float) -> str:
 
 
 def build_parser() -> argparse.ArgumentParser:
+    """Функция создает разбориков аргументов"""
     parser = argparse.ArgumentParser(
         prog='toolkit',
         description='калькулятор выражений и конвертер величин',
@@ -42,6 +43,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Точка входа CLI"""
     parser = build_parser()
     args = parser.parse_args(argv)
 

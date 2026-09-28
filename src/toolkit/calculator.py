@@ -25,6 +25,7 @@ Tokens = list[Token]
 
 
 def tokenize(expr: str) -> Tokens:
+    """Разбивает строку на токены (тип токена [число, ун опер., бин опер.]; сам токен)"""
     if not expr or not expr.strip():
         raise EmptyExpressionError("Выражение пустое. Ошибка!")
 
@@ -87,12 +88,16 @@ def tokenize(expr: str) -> Tokens:
 
 
 def push_op(stack: list[Token], res: Tokens, op: Token) -> None:
-    while stack and PRECEDENCE.get(stack[-1][0]) >= PRECEDENCE[op[0]]:
+    """Функиця для перемещание токенов из стека в результирующий список"""
+    while stack and PRECEDENCE.get(stack[-1][0], 0) >= PRECEDENCE[op[0]]:
         res.append(stack.pop())
     stack.append(op)
 
 
 def validate(tokens: Tokens) -> None:
+    """Функция проверки на корректность выражения
+    (пустое выражение, неизвестный символ, два бинарных оператора подряд и тп)
+    """
     if not tokens:
         raise EmptyExpressionError('Выражение пустое. Ошибка')
 
@@ -118,6 +123,7 @@ def validate(tokens: Tokens) -> None:
 
 
 def to_npr(tokens: Tokens) -> Tokens:
+    """Функция перевода выражения в обратную польскую запись"""
     res = []
     stack = []
 
@@ -138,6 +144,7 @@ def to_npr(tokens: Tokens) -> Tokens:
 
 
 def eval_npr(expr: Tokens) -> float:
+    """Функция вычисления результата выражения в обратной польской записи"""
     stack = []
     for tok_type, tok_val in expr:
         if tok_type == NUM:
@@ -183,6 +190,7 @@ def eval_npr(expr: Tokens) -> float:
 
 
 def calculate(expression: str) -> float:
+    """Базовая функция для вызова в CLI"""
     tokens = tokenize(expression)
     validate(tokens)
     return eval_npr(to_npr(tokens))

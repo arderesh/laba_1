@@ -29,6 +29,7 @@ ABS_ZERO = {
 
 
 def group(unit: str) -> str:
+    """Функция присвоения входного значение определенной группе"""
     if unit in LENG:
         return "length"
     elif unit in MASSA:
@@ -39,6 +40,7 @@ def group(unit: str) -> str:
 
 
 def to_c(unit: str, value:float) -> float:
+    """(Для температура) Функция перевода значения из фаренгейтов или кельвинов в градусы цельсия"""
     if unit == 'c':
         return value
     elif unit == 'f':
@@ -48,6 +50,7 @@ def to_c(unit: str, value:float) -> float:
 
 
 def from_c(unit: str, value: float) -> float:
+    """(Для температуры) Функция обратного перевода из градусов цельсия в требуемую шкалу перевода температуры"""
     if unit == 'c':
         return value
     if unit == 'f':
@@ -57,6 +60,7 @@ def from_c(unit: str, value: float) -> float:
 
 
 def convert(value: float, from_unit: str, to_unit: str) -> float:
+    """Функция конвертирует значение из from_unit в to_unit"""
     if not isinstance(value, (int, float)):
         raise InvalidValueError('Значение должно быть числом')
 
