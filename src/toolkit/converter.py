@@ -29,7 +29,7 @@ ABS_ZERO = {
 
 
 def group(unit: str) -> str:
-    """Функция присвоения входного значение определенной группе"""
+    """Функция присвоения входного значения определенной группе"""
     if unit in LENG:
         return "length"
     elif unit in MASSA:

@@ -13,7 +13,7 @@ def format_result(value: float) -> str:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    """Функция создает разбориков аргументов"""
+    """Функция создает разборщиков аргументов"""
     parser = argparse.ArgumentParser(
         prog='toolkit',
         description='калькулятор выражений и конвертер величин',
